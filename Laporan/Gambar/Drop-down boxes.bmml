@@ -1,0 +1,9 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="192" measuredH="98" mockupW="132" mockupH="78">
+  <controls>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::ComboBox" x="60" y="20" w="-1" h="-1" measuredW="132" measuredH="78" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Drop-down%20boxes%0AMale%0AFemale%0AOthers</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

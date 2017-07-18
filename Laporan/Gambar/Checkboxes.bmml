@@ -1,0 +1,30 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="671" measuredH="156" mockupW="371" mockupH="72">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="300" y="84" w="371" h="72" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="313" y="96" w="-1" h="-1" measuredW="101" measuredH="37" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Sebutkan%20hobimu%5Cr%28lebih%20dari%20satu%29%20%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::CheckBox" x="430" y="95" w="-1" h="-1" measuredW="78" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Membaca</text>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::CheckBox" x="533" y="95" w="-1" h="-1" measuredW="105" measuredH="22" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Menonton%20Film</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::CheckBox" x="430" y="119" w="-1" h="-1" measuredW="76" measuredH="22" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Travelling</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::CheckBox" x="533" y="119" w="-1" h="-1" measuredW="78" measuredH="22" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Memasak</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

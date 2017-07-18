@@ -1,0 +1,72 @@
+The Octalysis Strategy Dashboard
+
+Business Metric:
+1. Meningkatkan sign up
+2. Meningkatkan login
+3. Meningkatkan survei yang dibuat
+4. Meningkatkan pengisi survei
+5. Meningkatkan kualitas data survei
+
+User Types:
+Pembuat survei:
+- personal yang membuat survei untuk kebutuhan pribadi
+- perusahaan yang membuat survei untuk produk atau kinerja mereka
+- personal yang membuat survei untuk bersenang-senang
+- lembaga pendidikan atau tutor yang ingin mengevaluasi kinerja mereka
+Pengisi survei:
+- personal yang tertarik dengan animasi dalam survei
+- personal yang diminta untuk mengisi survei secara sukarela
+
+1. Tipe Killer
+	- personal yang tertarik dengan animasi dalam survei
+2. Tipe Achiever
+	- perusahaan yang membuat survei untuk produk atau kinerja mereka
+	- lembaga pendidikan atau tutor yang ingin mengevaluasi kinerja mereka
+	- personal yang membuat survei untuk kebutuhan pribadi
+3. Tipe Socializer
+	- personal yang diminta untuk mengisi survei secara sukarela
+4. Tipe Explorer
+	- personal yang tertarik dengan animasi dalam survei
+	- personal yang membuat survei untuk bersenang-senang
+
+Desired Actions:
+1. Discover Phase:
+	- Mempelajari cara membuat survei (tutorial)
+	- Mencoba mengisi survei
+	- Melakukan sign up
+2. Onboarding Phase:
+	- Share survei yang telah dibuat
+	- Mencoba membuat berbagai tipe survei
+	- Melihat hasil survei
+3. Scaffolding Phase:
+	- Mulai mengisi survei orang lain agar surveinya diisi
+	- Melakukan login secara rutin
+	- Membuat kreasi pada animasi survei yang dibuat
+4. Endgame Phase:
+	- Membagikan tips dan trik untuk membuat survei
+	- Menawarkan jasa pembuatan survei
+
+Feedback Mechanics:
+Place to plant:
+- Email
+- Website
+Gamification Design to triggers:
+• Countdown Timers (Core Drives 6 and 8)
+• Unlockable Content Page (Core Drive 3 and 6)
+• Virtual Dice Roll Overlays (Core Drive 4 and 7)
+• Little Tweet Bird on sidebar (Core Drives 5 and 7)
+• Glowing Choice Overlay (Core Drives 2, 7)
+• Embedded Videos (Core Drives 1, 5, and 7)
+• Status Points via Captain Up or another Gamification Platform (Core Drives 2, 4, and 6)
+• Hello Bar Top Display (Core Drives 1, 2, 6, and 7)
+• Game Technique Collection Sets (Core Drives 2, 4, 6, and 7)
+• Leaderboards via Captain Up (Core Drives 2, 5, 6, and 8)
+• Certificates (Core Drives 2, 4, 5, and 6)
+• Blog Posts to showcase members and announce information
+(Core Drives 1, 2, 5, 6, 7)
+• Achievement Symbols via Captain Up (Core Drives 2, 3, 4, 6,
+and 7)
+• Animated Popup Interfaces (Core Drives 1, 2, 5, 6, 8)
+• Character Growth Charts (Core Drives 2, 3, 4, 5, 6, 8)
+• Exchangeable Points that can be traded or redeemed (Core
+Drives 2, 3, 4, 5, 6, 7, 8)
