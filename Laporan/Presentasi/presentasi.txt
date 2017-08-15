@@ -1,0 +1,27 @@
+Presentasi STA
+- Judul
+- Latar belakang
+	Survei
+	KP
+- Metode
+	Gamifikasi lingkungan
+	Octalysis Framework
+	8th Core
+- Implementasi
+	Octalysis strategy dashboard
+- Terima kasih
+	
+Fitur:
+- Mujigae (Ucapan Selamat Datang)
+- Parallel kingdom, revelation online (mentorship)
+- Instagram, facebook (vote)
+- Forum, Kaskus, facebook (chat group)
+- PokemonGo, foursquare (badge)
+- Facebook's birthday or friends card (event)
+- blind date with book (mystery box)
+- wattpad (kategori)
+- wattpad (leaderboard)
+
+p28
+p65-p69
+p143-p145

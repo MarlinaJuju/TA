@@ -1,0 +1,76 @@
+Survey:
+- int rank
+- int vote
+- Guid SurveyCategoryId
+- Bool IsDeleted
+
+SurveyCategory:
+- Guid Id
+- bool IsDeleted
+- string Name
+
+Collection:
+- Guid Id
+- Guid UserId
+- Guid BadgeId
+- Bool IsDeleted
+
+Badge:
+- Guid Id
+- string Name;
+- int Quantity
+- string DesiredAction
+- Bool IsDeleted
+
+BadgeRequirement:
+- Guid Id
+- Guid BadgeId
+- int Quantity
+- string Name
+
+MysteryBox:
+- Guid Id
+- string Description
+- Bool IsDeleted
+- Guid? BadgeId
+
+Event:
+- Guid Id
+- DateTime StartDate
+- DateTime EndDate
+- String Name
+- Guid ImageId
+- int AccomplishedUser
+
+EventRequirement:
+- Guid Id
+- Guid BadgeId
+- int Quantity
+- string Name
+
+ChatMember:
+- Guid Id
+- Bool IsDeleted
+- Bool IsPending
+- Bool IsAdmin
+- Guid UserId
+- Guid ChatGroupId
+
+ChatGroup:
+- Guid Id
+- String Name
+- String Description
+- Bool IsDeleted
+- Bool IsPublic
+- Guid ChatGroupTypeId
+
+Chat:
+- Guid Id
+- String Text
+- Bool IsDeleted
+- DateTime CreatedDate
+
+ChatGroupType:
+- Guid Id
+- string Name
+- Bool IsDeleted 
