@@ -1,0 +1,193 @@
+﻿@model Showvey.ViewModels.AnimateViewModel
+
+@{
+    ViewBag.Title = "Design";
+    Layout = "~/Views/Home/layout.cshtml";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionId, "QuestionId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("QuestionId", null,"Select Question", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.QuestionId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.ImageId, "ImageId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ImageId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ImageId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group add-animasi">
+            <div class="col-md-offset-2 col-md-10">
+                <a class="btn btn-lg btn-add btn-block">Add Image</a>
+            </div>
+        </div>
+
+        @*Code for popup file*@
+
+        <div id="show-animasi" class="modal-animation">
+            <div class="modal-animation-content">
+
+                <div class="modal-animation-header">
+                    <span class="btn-plus close-animation"><i class="fa fa-times"></i></span>
+                </div>
+
+                <div class="modal-animation-body">
+
+                    <!-- side-menu -->
+                    <div class="padd">
+                        <ul class="nav" id="side-menu">
+
+                            <li class="selected" id="Character">
+                                <a href="#"> Character</a>
+                            </li>
+
+                            <li class="hover" id="Background">
+                                <a href="#"> Background</a>
+                            </li>
+
+                            <li class="hover" id="Dialog">
+                                <a href="#"> Dialog Box</a>
+                            </li>
+                        </ul>
+
+                        <div class="image-grid">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="img-border">
+                                            <a class="thumb-image" href="#"><img src="~/Content/assets/img/home/4.png" alt="" class="animate-image"></a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="img-border">
+                                            <a class="thumb-image" href="#"><img src="~/Content/assets/img/home/5.png" alt="" class="animate-image"></a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="img-border">
+                                            <a class="thumb-image" href="#"><img src="~/Content/assets/img/home/6.png" alt="" class="animate-image"></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="img-border">
+                                            <a class="thumb-image" href="#"><img src="~/Content/assets/img/home/slider/slide1/1.png" alt="" class="animate-image"></a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="img-border">
+                                            <a class="thumb-image" href="#"><img src="~/Content/assets/img/home/slider/slide1/2.png" alt="" class="animate-image"></a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="img-border">
+                                            <a class="thumb-image" href="#"><img src="~/Content/assets/img/home/slider/slide1/3.png" alt="" class="animate-image"></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-right"><input type="submit" value="Select" class="btn btn-default btn-image" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                        @*<div class="image-grid">
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="#">
+                                    <img class="animate-image" src="~/Content/assets/img/home/slider/slide1/3.png" alt="">
+                                </a>
+                            </div>
+                        </div>*@
+                            <!--Fill-->
+
+
+                        </div>
+                    </div>
+                </div>
+
+        @*<div class="form-horizontal image-popup">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @{Html.RenderAction("TemporaryQuestion", "Questions");}
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Width, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-1">
+                    @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
+                </div>
+                @*</div>
+
+                <div class="form-group">*@
+                @Html.LabelFor(model => model.Height, htmlAttributes: new { @class = "control-label col-md-2 col-md-offset-1" })
+                <div class="col-md-1">
+                    @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="control-label col-md-2">
+                    <b>X</b>
+                </div>
+                <div class="col-md-1">
+                    @Html.EditorFor(model => model.PosX, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PosX, "", new { @class = "text-danger" })
+                </div>
+                @*</div>
+
+                <div class="form-group">*@
+                <div class="control-label col-md-2 col-md-offset-1">
+                    <b>Y</b>
+                </div>
+                <div class="col-md-1">
+                    @Html.EditorFor(model => model.PosY, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PosY, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.Depth, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Depth, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Depth, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TimeStart, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TimeStart, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TimeStart, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TimeEnd, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TimeEnd, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TimeEnd, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+}

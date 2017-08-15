@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Showvey.ViewModels.NotificationViewModel>
+@{
+    Layout = null;
+}
+@functions{
+    public string GetDays(DateTime d)
+    {
+        if (Math.Round((double)(DateTime.Now - d).TotalDays) == 0)
+        {
+            return "Today";
+        }
+        else if (Math.Round((double)(DateTime.Now - d).TotalDays) == 1)
+        {
+            return "Yesterday";
+        }
+        else
+        {
+            return (Math.Round((double)(DateTime.Now - d).TotalDays)).ToString() + " days ago";
+        }
+    }
+}
+@helper datas(int n){
+if (n > 0){
+        foreach (var item in Model){
+            <li>
+                <a href="#">
+                    <div>
+                        <strong><span class=" label label-info">@Html.DisplayFor(modelItem => item.FromUsername)</span></strong>
+                        <span class="pull-right text-muted">
+                            <em>@GetDays(item.CreatedDate)</em>
+                        </span>
+                    </div>
+                    <div>@Html.DisplayFor(modelItem => item.Message)</div>
+                </a>
+            </li>
+            <li class="divider"></li>
+        }
+}
+else
+{
+        <li>
+            <a href="#">
+
+                <div class="text-center">You have no messages yet...</div>
+            </a>
+        </li>
+        <li class="divider"></li>
+}
+}
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        @if (ViewBag.Count > 0)
+        {
+            <span class="top-label label label-success">@ViewBag.Count</span>
+        }
+        <i class="fa fa-envelope fa-3x"></i>
+    </a>
+    <!-- dropdown-messages -->
+    <ul class="dropdown-menu dropdown-messages">
+        @datas(ViewBag.Count)
+        @*@foreach (var item in Model)
+        {
+            <li>
+                <a href="#">
+                    <div>
+                        <strong><span class=" label label-info">@Html.DisplayFor(modelItem => item.FromUsername)</span></strong>
+                        <span class="pull-right text-muted">
+                            <em>@GetDays(item.CreatedDate)</em>
+                        </span>
+                    </div>
+                    <div>@Html.DisplayFor(modelItem => item.Message)</div>
+                </a>
+            </li>
+            <li class="divider"></li>
+        }*@
+
+        <li>
+            <a class="text-center" href="@Url.Action("Index")">
+                <strong>Read All Messages @(ViewBag.Count > 3 ? "(" + (ViewBag.Count - 3) + ")" : "")</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+    <!-- end dropdown-messages -->
+</li>

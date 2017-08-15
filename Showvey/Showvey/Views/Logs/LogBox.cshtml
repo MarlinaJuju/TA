@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Showvey.ViewModels.LogViewModel>
+@{ 
+    Layout = null;
+}
+@functions{
+    public string GetDays(DateTime d)
+    {
+        if (Math.Round((double)(DateTime.Now - d).TotalDays) == 0)
+        {
+            return "Today";
+        }
+        else if (Math.Round((double)(DateTime.Now - d).TotalDays) == 1)
+        {
+            return "Yesterday";
+        }
+        else
+        {
+            return (Math.Round((double)(DateTime.Now - d).TotalDays)).ToString()+" days ago";
+        }
+    }
+}
+@helper datas(int n) {
+if (n == 0)
+{
+        <li>
+            <a href="#">
+
+                <div class="text-center">There is no alert yet...</div>
+            </a>
+        </li>
+        <li class="divider"></li>
+}
+else{
+        foreach (var item in Model)
+        {
+            <li>
+                <a href="#">
+                    <div>
+                        <i class="fa fa-comment fa-fw"></i>@Html.DisplayFor(modelItem => item.Message)
+                    </div>
+                    <div>
+                        <span class="pull-right text-muted small">@GetDays(item.CreatedDate)</span>
+                    </div>
+                </a>
+            </li>
+            <li class="divider"></li>
+        }
+}
+}
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+       <i class="fa fa-bell fa-3x"></i>
+    </a>
+    <!-- dropdown alerts-->
+    <ul class="dropdown-menu dropdown-alerts">
+        @datas(ViewBag.Count)
+        
+        <li>
+            <a class="text-center" href="@Url.Action("Index")">
+                <strong>See All Alerts</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+    <!-- end dropdown-alerts -->
+</li>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>*@

@@ -1,0 +1,202 @@
+﻿@using Showvey.ViewModels
+@{
+    Layout = null;
+    UserViewModel user = (UserViewModel)HttpContext.Current.Session["User"];
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Showvey</title>
+    <link href="~/Content/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/animate.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/lightbox.css" rel="stylesheet">
+    <link href="~/Content/assets/css/main.css" rel="stylesheet">
+    <link href="~/Content/assets/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+<body>
+    <div id="bg-header-color">
+        <header id="header">
+            <div class="container">
+                <div class="row-index">
+                    <div class="col-sm-12 overflow">
+                        <div class="social-icons pull-right">
+                            <ul class="nav nav-pills icon-ul">
+                                @if (user != null)
+                                {
+                                    <li><a href="@Url.Action("Details","Users",new { id = user.Id })" id="login-text"><h5>Welcome, @user.Username</h5></a></li>
+                                    <li><a><h4><b> | </b></h4></a></li>
+                                    <li><a href="@Url.Action("Index","Surveys")" id="login-text"><h5>Manage</h5></a></li>
+                                    <li><a><h4><b> | </b></h4></a></li>
+                                    <li><a href="@Url.Action("Logout","Account")" id="login-text"><h5>Logout</h5></a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Register","Users")" id="login-text"><h5>Register</h5></a></li>
+                                    <li><a><h4><b> | </b></h4></a></li>
+                                    <li><a href="@Url.Action("Login","Account")" id="login-text"><h5>Login</h5></a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar navbar-inverse" role="banner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                            <h1><img src="~/Content/assets/img/home/logo.png" alt="logo"></h1>
+                        </a>
+
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="@Url.Action("Index","Home")"><h4>Home</h4></a></li>
+                            <li class="dropdown"><a href="#services"><h4>Features</h4></a>
+                            <li class="dropdown"><a href="@Url.Action("Sample","Forms",new { sample="yes"})"><h4>Examples</h4></a>
+                            <li class="dropdown"><a href="@Url.Action("Banks","Surveys")"><h4>Banks</h4></a>
+                            <li class="dropdown"><a href="#features"><h4>About</h4></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--/#header-->
+        <section id="home-slider">
+            <div class="container">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>CREATE YOUR IMAGINE SURVEY</h1>
+                        <p>Create the awesome survey, give best experience filling survey for respondents, and enjoy it...</p>
+                        <a href="#" class="btn btn-common"><b>GETTING STARTED</b></a>
+                    </div>
+                    <img src="~/Content/assets/img/home/slider/slide1/terminal.png" class="slider-house" alt="slider image">
+                    <img src="~/Content/assets/img/home/slider/slide1/2.png" class="slider-circle1" alt="slider image">
+                    <img src="~/Content/assets/img/home/slider/slide1/cloud1.png" class="slider-cloud1" alt="slider image">
+                    <img src="~/Content/assets/img/home/star.png" class="slider-sun" alt="slider image">
+                    <img src="~/Content/assets/img/home/slider/slide1/cloud2.png" class="slider-cloud2" alt="slider image">
+                    <img src="~/Content/assets/img/home/slider/slide1/cloud3.png" class="slider-cloud3" alt="slider image">
+                    <img src="~/Content/assets/img/home/slider/slide1/3.png" class="slider-circle3" alt="slider image">
+                    <img src="~/Content/assets/img/home/slider/slide1/1.png" class="slider-cycle" alt="">
+                </div>
+            </div>
+            <div class="preloader"><i class="fa fa-star fa-spin"></i></div>
+        </section>
+        <!--/#home-slider-->
+    </div>
+    <section id="services">
+        <div class="container">
+            <div class="row-index">
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <img src="~/Content/assets/img/home/step-1.png" alt="">
+                        </div>
+                        <h2>Write questions</h2>
+                        <p>List your needs and write it down in questions</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
+                            <img src="~/Content/assets/img/home/step-2.png" alt="">
+                        </div>
+                        <h2>Put out the creativity</h2>
+                        <p>Design your question's display as cool as your imagination</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
+                            <img src="~/Content/assets/img/home/step-3.png" alt="">
+                        </div>
+                        <h2>Show it!</h2>
+                        <p>Ready? Share your survey and get everyone's attenttion!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#services-->
+    <section id="action" class="responsive">
+        <div class="container">
+            <div class="col-sm-8 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                <h1 class="title">Ready to show your masterpiece?</h1>
+
+            </div>
+            <div class="col-sm-4 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                <img src="~/Content/assets/img/home/star-1.png" class="img-star-1 img-star" alt="">
+                <img src="~/Content/assets/img/home/star-2.png" class="img-star-2 img-star" alt="">
+            </div>
+        </div>
+    </section>
+    <section id="features">
+        <div class="container">
+            <div class="row-index">
+                <div class="single-features bg-simple">
+                    <div class="col-sm-4 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <img src="~/Content/assets/img/home/4.png" class="img-responsive img-simple" alt="">
+                    </div>
+                    <div class="col-sm-6 wow simple fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h1>Simple</h1>
+                        <P>Easy use tools to create your survey. Using simple display to support you creating survey.</P>
+                    </div>
+                </div>
+                <div class="single-features bg-attractive">
+                    <div class="col-sm-6 col-sm-offset-1 align-right wow attractive fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h1>Attractive</h1>
+                        <P>Cute animation and colorful design is the best way to attract people. Get their attention and get the best result for your survey.</P>
+                    </div>
+                    <div class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <img src="~/Content/assets/img/home/5.png" class="img-responsive img-attractive" alt="">
+                    </div>
+                </div>
+                <div class="single-features bg-credible">
+                    <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <img src="~/Content/assets/img/home/6.png" class="img-responsive img-credible" alt="">
+                    </div>
+                    <div class="col-sm-6 wow credible fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <h1>Credible</h1>
+                        <P>Available in many kind of question's type that suit with your needs. Safe data and details result for every questions to help you.</P>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row-index">
+                <div class="col-sm-12" id="bg-copyright-color">
+                    <div class="copyright-text text-center">
+                        <p>&copy; Showvey 2016. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="~/Content/assets/scripts/jquery.js"></script>
+    <script type="text/javascript" src="~/Content/assets/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/scripts/lightbox.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/scripts/wow.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/scripts/main.js"></script>
+</body>
+</html>

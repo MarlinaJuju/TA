@@ -1,0 +1,205 @@
+﻿@model Showvey.ViewModels.SurveyViewModel
+@using Showvey.ViewModels
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Home/layout.cshtml";
+    ViewBag.Survey = HttpContext.Current.Session["Survey"];
+}
+@functions{
+    public string Cek(string value)
+    {
+        return value;
+    }
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SurveyTypeId, "Survey Type", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SurveyTypeId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SurveyTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @value = ViewBag.SurveyTitle } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @value = ViewBag.SurveyDescription } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    
+                <div class="form-group @(ViewBag.Survey==null?"":"btn-validate")">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" name="CreateSurvey" id="CreateSurvey" value="Create Survey" class="btn btn-default" />
+                    </div>
+                </div>
+        <div class="form-group @(ViewBag.Survey==null?"btn-validate":"")">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" name="CreateSurvey" id="EditSurvey" value="Edit Survey" class="btn btn-default" />
+            </div>
+        </div>
+            
+            @*<div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a class="btn btn-default">Edit</a>
+                </div>
+            </div>*@
+            </div>
+}
+@if (ViewBag.Survey != null)
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @{Html.RenderAction("TemporaryQuestion", "Questions");}
+            </div>
+        </div>
+        <div class="form-group add-quest">
+            <div class="col-md-offset-2 col-md-10">
+                <a class="btn btn-lg btn-add btn-block">Add Question</a>
+            </div>
+        </div>
+        @using (Html.BeginForm("CreateQuestion", "Questions", FormMethod.Get))
+        {
+            <div class="form-group quest">
+                <div class="col-md-offset-2 col-md-9">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <div class="control-label col-md-2">
+                                Question Type
+                            </div>
+                            <div class="col-md-10">
+                                @Html.DropDownList("QuestionTypeId", null, htmlAttributes: new { @class = "form-control",@onchange= "PassingValue(this.value)"})
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <div class="control-label col-md-2">
+                                    Question
+                                </div>
+                                <div class="col-md-10">
+                                    <input type="text" name="Content" class="form-control">
+                                    @Html.ValidationMessageFor(a => a.Questions)
+                                </div>
+                            </div>
+
+
+                        <!--For Multiple choice type questions-->
+                        <div id="MultipleChoice">
+
+                        <div class="form-group">
+                            <div class="col-md-2 control-label">
+                                Answer
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" name="dynamicField" class="form-control">
+                            </div>
+                        </div>
+                        <div id="fields"></div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <span class="input-group-btn">
+                                        <a class="btn-plus" id="btnAddField">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            </div>
+
+
+                        <!--For Rating type questions-->
+                        <div id="Rating">
+                        <div class="form-group">
+                            <div class="col-md-2 control-label">
+                                Scale
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" name="Count" class="form-control">
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create Question" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <span class="input-group-btn">
+                    <a class="btn btn-default" href="@Url.Action("Design")">Start Design</a>
+                </span>
+            </div>
+        </div>
+
+        </div>
+
+        @*<div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @{Html.RenderAction("TemporaryQuestion", "Questions");}
+                    </div>
+                </div>
+                <div class="form-group add-quest">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a class="btn btn-lg btn-add btn-block">Add Question</a>
+                    </div>
+                </div>
+                <div class="form-group quest">
+                    <div class="col-md-offset-2 col-md-9">
+                        @{Html.RenderAction("CreateQuestion", "Questions");}
+                    </div>
+                </div>
+            </div>*@
+        }
+<script>
+function PassingValue(id)
+{
+    var selectedText = document.getElementById('QuestionTypeId')[document.getElementById('QuestionTypeId').selectedIndex].innerText;
+    if (selectedText == 'Rating') {
+        document.getElementById('Rating').style.display = "inline";
+        document.getElementById('MultipleChoice').style.display = "none"; //for checkbox and radio button
+    }
+    else if (selectedText == 'Plain' || selectedText == 'Yes/No' || selectedText == 'Short Text' || selectedText == 'Long Text') {
+        //for plain, yes/no, short text, and long text do nothing
+        document.getElementById('Rating').style.display = "none";
+        document.getElementById('MultipleChoice').style.display = "none"; //for checkbox and radio button
+    }
+    else if (selectedText == 'Checkbox' || selectedText == 'Radio Button') {
+        document.getElementById('Rating').style.display = "none";
+        document.getElementById('MultipleChoice').style.display = "inline"; //for checkbox and radio button
+    }
+}
+
+//$(document).ready(function() {
+//    var $fields = $('#fields');
+//    alert("a");
+//    $('#btnAddField').click(function (e) {
+//        alert("a");
+//        e.preventDefault();
+//        $('<input type="text" name="dynamicField" class="form-control">').appendTo($fields);
+//    });
+//});
+</script>

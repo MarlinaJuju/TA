@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Showvey.ViewModels.QuestionViewModel>
+@{
+    Layout = null;
+}
+
+<table class="table">
+    <tr class="table-bordered">
+        @*
+        <th>
+            @Html.DisplayNameFor(model => model.Survey.Title)
+        </th>*@
+        <th>
+            No.
+        </th>
+        <th>
+            Question
+        </th>
+        <th>
+            Type
+        </th>
+        <th>Action</th>
+    </tr>
+    @{int id = 0; }
+@foreach (var item in Model) {
+    
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuestionType.Type)
+        </td>
+        <td>
+            <a class="btn btn-warning edit-quest" href="#" onclick="EditToggle(@id,@Model.Count())">Edit</a>
+            <a class="btn btn-danger" href="@Url.Action("DeleteQuestion",new { id=item.Id})">Delete</a>
+        </td>
+    </tr>
+    string type = "Edit" + id;
+    <tr id="edit-question" class="@type" style="display:none;">
+        <td colspan="4" id="">
+            @using (Html.BeginForm("EditQuestion", "Questions", FormMethod.Get))
+            {
+                <input type="hidden" name="Id" value="@item.Id" />
+            <div class="form-group">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            Question Type
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" readonly="readonly" class="form-control" value="@Html.DisplayFor(modelItem => item.QuestionType.Type)" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            Question
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" name="Content" class="form-control" value="@Html.DisplayFor(modelItem => item.Content)">
+                        </div>
+                    </div>
+
+                    @if (item.QuestionType.Type == "Checkbox" || item.QuestionType.Type == "Radio Button")
+                    {
+                    <!--For Multiple choice type questions-->
+                        <div class="form-group">
+                            <div class="col-md-2 control-label">
+                                Answer
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" name="editdynamicField" class="form-control" value="@item.QuestionAnswers.ElementAt(0).Answer">
+                            </div>
+                        </div>
+                        if (item.QuestionAnswers.Count > 1)
+                        {
+                            <div id="editfields">
+                                @for (int i = 1; i < item.QuestionAnswers.Count; i++)
+                                {
+                                <div class="form-group">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="editdynamicField" id="editdynamicField" class="form-control" value="@item.QuestionAnswers.ElementAt(i).Answer">
+                                    </div>
+                                    <div class="col-md-1"><a href="#" class="editremove_field btn btn-plus"><i class="fa fa-times"></i></a></div>
+                                </div>
+                                }
+                            </div>
+                        }
+                        <div id="editfields"></div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <span class="input-group-btn">
+                                    <a class="btn-plus" id="btnAddEditField">
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    
+                    }
+
+                    <!--For Rating type questions-->
+                    <div id="Rating">
+                        <div class="form-group">
+                            <div class="col-md-2 control-label">
+                                Scale
+                            </div>
+                            <div class="col-md-2">
+                                <input type="number" name="Count" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            }
+        </td>
+    </tr>
+    id++;
+}
+    
+</table>

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Showvey.ViewModels.ResponseViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Home/layout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Question.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BrowserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IPAdress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsRegistered)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResponseAnswer)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeletionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeletionUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUserId)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Question.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrowserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IPAdress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsRegistered)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResponseAnswer)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeletionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeletionUserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUserId)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

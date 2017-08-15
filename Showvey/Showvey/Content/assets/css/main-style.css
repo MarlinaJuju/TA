@@ -1,0 +1,508 @@
+﻿
+/*====================================
+ Free To Use For Personal And Commercial Usage
+Author: http://binarytheme.com
+ Share Us if You Like our work 
+ Enjoy Our Codes For Free always.
+======================================*/
+/*result*/
+.table-outter{
+    overflow-x: scroll;
+}
+
+#loader{
+    display:none;
+      position: fixed;
+      z-index:10;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+}
+
+#loader i{
+      font-size: 48px;
+  height: 48px;
+  line-height: 48px;
+  color: #00bcf2;
+  position: absolute;
+  left: 50%;
+  margin-left: -24px;
+  top: 50%;
+  margin-top: -24px;
+}
+
+#table-result {
+    border-collapse: collapse;
+}
+#table-result td{
+    border:1px solid blue;
+}
+
+/*end result*/
+
+
+/*design*/
+.image-control{
+    display:none;
+}
+
+.black-color{
+    color:black !important;
+}
+/*preview di design*/
+
+.window-preview{
+    width:800px;
+    height:450px;
+    background-color:black;
+}
+
+#canvas{
+    position:absolute;
+    z-index:1;
+}
+
+.Background{
+    width:800px;
+    height:450px;
+    position:absolute;
+    z-index:0;
+}
+
+.Character{
+    width:calc(478px/2.4);
+    height:calc(578px/2.4);
+    position:absolute;
+    z-index:1;
+}
+.Dialog{
+    margin-top:240px;
+    margin-left:10px;
+    width:calc(1880px/2.4);
+    height:calc(490px/2.4);
+    position:absolute;
+    z-index:2;
+}
+.dialog-text{
+    margin-top:260px;
+    margin-left:30px;
+    position:absolute;
+    z-index:3;
+    font-size:19px;
+}
+
+/*end preview*/
+
+.select-image{
+    position:absolute !important;
+    left:985px;
+    top:440px;
+}
+
+/*Animation*/
+.btn-image{
+    background-color:#00bcf2;
+    color:white;
+    margin-right:70px;
+    margin-top:40px;
+}
+.btn-image:hover{
+    background-color:#34c5ef;
+    color:white;
+}
+.btn-image:active{
+    background-color:#34c5ef;
+    color:white;
+}
+
+.animate-image{
+    width:120px;
+    height:120px !important;
+}
+
+a.thumb-image:hover, a.thumb-image:focus, a.thumb-image.active {
+    border-color: #00bcf2;
+}
+.pagination > .active > a{
+    background-color:#00bcf2;
+    color:white
+}
+.pagination > .active > a:hover, .pagination > .active > a:focus {
+    background-color: #34c5ef;
+    outline: 0;
+}
+.pagination > .active > a:active, .pagination > .active > a:hover {
+    outline: 0;
+}
+a:hover, a:focus {
+    color: #00bcf2;
+    text-decoration: underline;
+}
+a:active, a:hover {
+    outline: 0;
+}
+
+.thumb-image{
+    display: block;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 5px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.img-border{
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:70px;
+}
+
+.image-grid{
+    height:400px;
+    width:250px;
+    margin-top:-170px;
+    margin-left:190px;
+}
+
+
+
+/*Pop up box*/
+
+/*modal background*/
+.modal-animation{
+    display:none;
+    position:fixed !important;
+    z-index:1;
+    padding-top:100px;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background-color:rgb(0,0,0);
+    background-color:rgba(0,0,0,0.4);
+}
+
+/*modal content*/
+.modal-animation-content{
+    position:static;
+    background-color:#fefefe;
+    margin:auto;
+    padding:0;
+    border:1px solid #888;
+    border-radius:15px;
+    width:60%;
+    height:442px;
+    box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name:animatetop;
+    -webkit-animation-duration:0.4s;
+    animation-name:animatetop;
+    animation-duration:0.4s;
+}
+
+/*add animation*/
+@-webkit-keyframes animatetop{
+    from{top:-300px; opacity:0}
+    to{top:0;opacity:1}
+}
+
+@keyframes animatetop{
+    from{top:-300px; opacity:0}
+    to{top:0;opacity:1}
+}
+
+/*close button*/
+.close-animation{
+    color:#fff !important;
+    float:right;
+}
+.close-animation:hover,
+.close-animation:focus{
+    color:#fff !important;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.modal-animation-header{
+    padding:2px 16px;
+    margin-bottom:2px;
+    background-color:#00bcf2;
+    border-radius:14px 14px 0px 0px;
+    height:40px;
+    color:white;
+}
+
+.modal-animation-body{
+}
+
+.padd{
+    background-color:#00bcf2;
+    width:165px;
+    border-radius:0px 0px 0px 14px;
+    height:400px;
+}
+
+.modal-animation-footer{
+    padding:2px 16px;
+        background-color:#00bcf2;
+    color:white;
+    height:20px;
+    width:30%;
+        border-radius:0px 0px 14px 0px;
+}
+
+/*end pop up box*/
+
+/* user image section */
+.bullet-answer{
+    font-size:10px;
+}
+#MultipleChoice{
+    display:none;
+}
+#Choices{
+    display:none;
+}
+#Rating{
+    display:none;
+}
+.btn-plus{
+    font-size:20px;
+    color:#00bcf2;
+    border:none;
+}
+.btn-plus:hover{
+    font-size:22px;
+    color:#34c5ef;
+}
+.btn-plus:active{
+    font-size:22px;
+    color:#34c5ef;
+    border:none;
+}
+.btn-plus:visited{
+    font-size:20px;
+    color:#00bcf2;
+    border:none;
+}
+.btn-add{
+    background-color:#00bcf2;
+    color:white;
+}
+.btn-add:hover{
+    background-color:#34c5ef;
+    color:#fff;
+}
+.btn-validate{
+    display:none;
+}
+
+.quest{
+    display:none;
+}
+/*#edit-question{
+    display:none;
+}*/
+
+.displayNone {
+    display:none;
+}
+
+.displayBlock {
+    display:block;
+}
+
+.image-popup{
+    display:none;
+}
+
+#home-slider .slider-form {
+  position: absolute;
+  right: 190px;
+  bottom: 300px;
+}
+
+.animate-in .slider-form {
+  -webkit-animation: bounceIn 800ms ease-in-out 1900ms both;
+  animation: bounceIn 800ms ease-in-out 1900ms both;
+}
+
+
+.header-fixed {
+        top: 0;
+    border-width: 0 0 1px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+#missing{
+    color:red;
+    font-weight:bold;
+}
+#unread{
+    font-weight:bold;
+}
+.user-section {
+    margin-top:20px;
+    font-size:22px;
+    background-color:#02a7d6;/* edit warna background user*/
+}
+.user-section-inner {
+    height: 65px;
+width: 65px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+overflow: hidden;
+display: inline-block;
+float: left;
+margin-right: 15px;
+margin-top: 20px;
+}
+    .user-section-inner img {
+        margin-left:10px;
+        width:55px;
+        height:60px;
+        
+    }
+.user-info {
+    display: block;
+    color:#fff!important;
+display: inline-block;
+padding: 15px;
+margin-bottom: 0px
+}
+.user-text-online {
+    font-size:18px;
+    color: #fff; /* edit warna tulisan online*/
+}
+.user-circle-online {
+    width: 15px!important;
+    height: 15px!important;
+}
+
+/* side-menu section */
+.nav > li > a:hover, .nav > li > a:focus {
+    background-color:rgba(0, 0, 0, 0);
+}
+.navbar-top-links  .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #c97405;
+    color: #ffffff;
+}
+.navbar-top-links > li > a {
+color: #00bcf2; /*warna thumbnail header*/
+}
+
+.nav > li > a {
+padding: 20px 15px;
+}
+#side-menu {
+    background-color:#02a7d6;
+}
+.hover:hover{
+	background-color:#0293bd;
+}
+ #side-menu a {
+            color:#fff;
+           border-bottom: 1px solid #fff !important;
+           height: 55px;
+        }
+.selected a {
+    color:#c97405 !important;
+
+}
+.selected{
+	color:#c97405 !important;
+	background-color: #fcefa6; /*-warna menu yg diselect*/
+}
+#selected a {
+    color:#c97405 !important;
+    background-color: #fcefa6; /*-warna menu yg diselect*/
+}
+#selected{
+	color:#c97405 !important;
+	background-color: #fcefa6; /*-warna menu yg diselect*/
+}
+/* back colors */
+        .blue {
+            background-color:rgb(113, 159, 241);
+        }
+         .green {
+            background-color:rgb(144, 236, 192);
+        }
+          .red {
+            background-color:rgb(255, 102, 133);
+        }
+        .yellow {
+            background-color:rgb(237, 253, 46);
+        }
+
+  /* No border */
+.no-boder {
+    border:0px solid #5bc0de !important;
+}
+/* tap nvbar Section */
+
+#navbar {
+    background-color:#ffffff;/*edit warna background header*/
+}
+
+.navbar-brand {
+    padding-left:5px;
+    padding-top:10px;
+}
+.navbar-brand img {
+    height:70px; /*logo atas*/
+}
+.top-label {
+    position: absolute;
+top: 50%;
+right: 50%;
+margin-top: -24px;
+margin-right: -24px;
+}
+
+/*large font*/
+.large-font {
+    font-size:18px;
+}
+
+.body-Login-back {
+    background-color:#00bcf2; 
+}
+
+.margin-tips {
+    margin:5px;
+}
+.navbar-default {
+border-color: #27A6BE;
+}
+/*media queries*/
+/*warna header*/
+.headercolor{
+	color: #00bcf2;
+}
+@media(min-width:768px) 
+{
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        min-height: 1000px;
+       
+       
+    }
+
+}
+
+@media(max-width:768px) {
+#wrapper {
+    margin-top:140px!important;
+    
+}
+}

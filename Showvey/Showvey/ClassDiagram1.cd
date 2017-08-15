@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Showvey.BundleConfig" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.FilterConfig" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.RouteConfig" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.MvcApplication" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Controllers.HomeController" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Controllers.SurveysController" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACABEAAAAAAAA=</HashCode>
+      <FileName>Controllers\SurveysController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Migrations.initial" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\201608230434351_initial.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Showvey.Migrations.Configuration" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Access" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\Access.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Animate" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAABAAAAAAAAAAAwEAAAAAAAAEgAAQAAAQAAAA=</HashCode>
+      <FileName>Models\Animate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.City" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\City.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Country" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Country.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Image" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAQAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Models\Image.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.ImageType" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\ImageType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Notification" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAEAAAABAAAAAAAAAAIQAAAAA=</HashCode>
+      <FileName>Models\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Permission" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Permission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Question" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAACAAAEAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Models\Question.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.QuestionAnswer" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAgQAAAA=</HashCode>
+      <FileName>Models\QuestionAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.QuestionType" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\QuestionType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Response" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAoAAAAQAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\Response.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Role" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.Survey" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAEAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Survey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.SurveyDataContext" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\SurveyDataContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.SurveyType" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\SurveyType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.Models.User" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEIAACACACCAEQAAQAQAAAAAAgACAEAAAAAAAAg=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Showvey.ViewModels.SurveyViewModel" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAASAAQAEAAAQAAAAgAACAAAAABAQAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\SurveyViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

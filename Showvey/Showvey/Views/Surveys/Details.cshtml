@@ -1,0 +1,126 @@
+﻿@model Showvey.ViewModels.SurveyViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Home/layout.cshtml";
+    if (Model.Type == "")
+    {
+        ViewBag.Type = "Type not identified";
+    }
+    else
+    {
+        ViewBag.Type = Model.Type;
+    }
+    int id = 1;
+    int x = 0;
+    List<int> tot = (List<int>)ViewBag.TotalResponse;
+}
+@functions{
+    public string GetSize(int total, int response)
+    {
+        return ((total*100)/response).ToString();
+    }
+} 
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Type
+        </dt>
+
+        <dd id=@(Html.DisplayFor(model=>model.SurveyType).ToString()==""?"missing":"")>
+            @(Html.ViewBag.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            Total Response
+        </dt>
+        <dd>
+            @ViewBag.ResponseTotal
+        </dd>
+    </dl>
+    <div class="form-horizontal">
+        
+        @foreach (var item in Model.Questions)
+        {
+            string type = "Response" + id;
+            <div class="form-group" onclick="ShowToggle(@id)">
+                <div class="col-md-12">
+                    <a class="btn btn-lg btn-add btn-block">@item.Content : @item.Type</a>
+                </div>
+            </div>
+            <div class="form-group @type black-color" style="display:none;">
+                @if (item.Type == "Checkbox" || item.Type == "Radio Button")
+                {
+                    foreach (var i in item.QuestionAnswers)
+                    {
+                        decimal a = i.Total / ViewBag.ResponseTotal;
+                        <div class="form-group col-md-offset-2">
+                            <div class="control-label col-md-2"><b>@i.Answer :</b></div>
+                            <div class="col-md-9">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="@GetSize(i.Total, tot[x])" aria-valuemin="0" aria-valuemax="100" style="width:@GetSize(i.Total, tot[x])%">
+                                        @GetSize(i.Total, tot[x])% : @i.Total votes
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else if (item.Type == "Short Text" || item.Type == "Short Text")
+                {
+                    <div class="form-group col-md-offset-2">
+                        <div class="control-label col-md-2"><b>Answer :</b></div>
+                        <table id="table-result">
+                                    @foreach (var i in item.QuestionAnswers)
+                                    {
+                                        <tr>
+                                            <td class="col-md-10">
+                                                    @i.Answer
+                                            </td>
+                                        </tr>
+                                    }
+                        </table>
+                    </div>
+                }
+                @{x = x + 1;}
+                @*else if (item.Type == "Rating")
+                    {
+                        foreach (var i in item.QuestionAnswers)
+                        {
+                            <tr>
+                                <td>@i.Answer</td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow=@i.Total aria-valuemin="0" aria-valuemax="@item.Number" style="width:((@i.Total/@ViewBag.ResponseTotal)*100)%">
+                                            @i.Total
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }*@
+            </div>
+            id++;
+        }
+    </div>
+</div>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

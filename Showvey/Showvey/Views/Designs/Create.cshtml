@@ -1,0 +1,181 @@
+﻿@model Showvey.ViewModels.DesignViewModel
+@using Showvey.ViewModels
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Home/layout.cshtml";
+    var x = (List<ImageTypeViewModel>)ViewBag.ImageTypeId;
+    string type = x[0].Id.ToString();
+    int i = 1;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionId, "QuestionId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" id="QuestionId" name="QuestionId">
+                    @foreach (var item in ViewBag.Question)
+                    {
+                        <option value=@item.Id data-value=@item.FontColor>@item.Content</option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.QuestionId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group add-animasi" data-value=@type>
+            <div class="col-md-offset-2 col-md-10">
+                <a class="btn btn-lg btn-add btn-block">Add Image</a>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="control-label col-md-2"><b>Preview:</b></div>
+            <div class="col-md-1">
+                <a class="btn btn-default" id="refresh">Refresh</a>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-default" id="savechanges">Save Change</a>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-default" id="applyall">Apply to All Question</a>
+            </div>
+        </div>
+        <div class="image-control">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="col-md-2 control-label"><b>X:</b></div>
+                    <div class="col-md-2">
+                        <input type="number" id="positionX" class="form-control" onchange="changeX()" />
+                    </div>
+                    <div class="col-md-2 control-label"><b>Y:</b></div>
+                    <div class="col-md-2">
+                        <input type="number" id="positionY" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="col-md-2 control-label"><b>Width:</b></div>
+                    <div class="col-md-2">
+                        <input type="number" id="char-width" class="form-control" />
+                    </div>
+                    <div class="col-md-2 control-label"><b>Height:</b></div>
+                    <div class="col-md-2">
+                        <input type="number" id="char-height" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="col-md-2 control-label"><b>Font Color:</b></div>
+                <div class="col-md-2">
+                    <input type="color" id="change-color" class="form-control" />
+                </div>
+                <div class="col-md-2 control-label"><b>Font Size:</b></div>
+                <div class="col-md-2">
+                    <input type="number" id="change-size" class="form-control" />
+                </div>
+            </div>
+        </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="window-preview" onload="GetAnimates()">
+                                <div class="dialog-text">
+                                    This is a sample question
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <span class="input-group-btn">
+                            <a class="btn btn-default" id="savepreview" href="@Url.Action("Index","Forms")">Save and Preview</a>
+                        </span>
+                    </div>
+                </div>
+                @*<div class="form-group">
+                        <div class="col-md-offset-2 form-control">
+                            <div class="window-preview">
+
+                            </div>
+                        </div>
+                    </div>*@
+
+                @*
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Width, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Width, "", new { @class = "text-danger" })
+                        </div>
+
+                        @Html.LabelFor(model => model.Height, htmlAttributes: new { @class = "control-label col-md-2 col-md-offset-1" })
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            <b>X</b>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.PosX, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PosX, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="control-label col-md-2 col-md-offset-1">
+                            <b>Y</b>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.EditorFor(model => model.PosY, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PosY, "", new { @class = "text-danger" })
+                        </div>*@
+
+                <!--Code for popup file-->
+
+                <div id="show-animasi" class="modal-animation">
+                    <div class="modal-animation-content">
+
+                        <div class="modal-animation-header">
+                            <span class="btn-plus close-animation"><i class="fa fa-times"></i></span>
+                        </div>
+
+                        <div class="modal-animation-body">
+
+                            <!-- side-menu -->
+                            <div class="padd">
+                                <ul class="nav" id="side-menu">
+
+                                    @foreach (var item in ViewBag.ImageTypeId)
+                                    {
+                                        string typeid = "type" + i;
+
+                                        <li class="@((i == 1) ? "selected" : "hover")" id=@typeid data-value=@item.Id onclick="TypeClicked(this.id,this.getAttribute('data-value'))">
+                                            <a href="#"> @item.Type</a>
+                                        </li>
+                                        i++;
+                                    }
+                                </ul>
+
+                                <div class="image-grid">
+                                    <table id="img-result"></table>
+                                    <div class="text-right select-image"><a class="btn btn-default btn-image">Select</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- end popup -->
+            </div>
+            }

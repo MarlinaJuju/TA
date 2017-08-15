@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Showvey.ViewModels.ImageViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Home/layout.cshtml";
+}
+
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create")">Create New</a>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table table-striped table-hover" id="tabledata">
+    <thead>
+        <tr>
+            <th>
+                Type
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.IsDeleted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedUserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeletionDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeletionUserId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedUserId)
+                </th>*@
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div id=@(item.Type==""?"missing":"")>@Html.DisplayFor(modelItem => item.Type)</div>
+                </td>
+                <td>
+                    <div id=@(item.Type==""?"missing":"")>@Html.DisplayFor(modelItem => item.Location)</div>
+                </td>
+                <td>
+                    <div id=@(item.Type==""?"missing":"")>@Html.DisplayFor(modelItem => item.Name)</div>
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedUserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeletionDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeletionUserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedUserId)
+                    </td>*@
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit",new { id=item.Id})">Edit</a>
+                    @*<a class="btn btn-info" href="@Url.Action("Details",new { id=item.Id})">Details</a>*@
+                    <a class="btn btn-danger" href="@Url.Action("Delete",new { id=item.Id})">Delete</a>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

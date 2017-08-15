@@ -1,0 +1,33 @@
+﻿@model Showvey.ViewModels.SurveyTypeViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Home/layout.cshtml";
+}
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            Survey Total
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurveyTotal)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

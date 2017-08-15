@@ -1,0 +1,78 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Preview</title>
+    <link href="~/Content/assets/css/Survey.css" rel="stylesheet">
+</head>
+<body id="@ViewBag.Survey" onload="Initialization()">
+    <input type="hidden" value="" id="unique">
+    <div class="window-preview">
+        <div>
+            <img src="" class="Background" />
+        </div>
+        <div>
+            <img src="" class="Character" />
+        </div>
+        <div>
+            <img src="" class="Dialog" />
+        </div>
+        <div class="dialog-text">
+            <div class="question-text"></div>
+            @*<p>Do you like me aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaahhhhhhhhhhhhhhhhhhhhhhhassssssssss</p>
+            <p>sssssssssssssssssssssssssssssssnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn<span class="ask">?</span></p>*@
+
+            <div class="col-3"></div>
+
+            <!--For Checkbox type answer-->
+            @*<div class="col-3">
+                    <input type="checkbox" name="answer" value="a"> a<br />
+                    <input type="checkbox" name="answer" value="b"> b<br />
+                    <input type="checkbox" name="answer" value="c"> c<br />
+                </div>*@
+
+            <!--For Radio button type answer-->
+            @*<div class="col-3">
+                    <input type="radio" name="answer" value="a"> a<br />
+                    <input type="radio" name="answer" value="b"> b<br />
+                    <input type="radio" name="answer" value="c"> c<br />
+                </div>*@
+
+            <!--For rating type answer-->
+            @*<div class="col-3">
+                    <input class="range-slider__range" type="range" value="100" min="0" max="500">
+                    <span class="range-slider__value">0</span>
+                </div>*@
+
+            <!--For scale type answer-->
+            @*<div class="col-3">
+            <input class="range-slider__range" type="range" value="250" min="0" max="500" step="50">
+            <span class="range-slider__value">0</span>
+        </div>
+
+
+    <!--For short and long text type answer-->
+    <div class="col-3 input-effect">
+        <input class="effect-20" type="text" placeholder="" onblur="cek()" onfocusout="cek()">
+        <label><i>My answer</i></label>
+        <span class="focus-border">
+            <i></i>
+        </span>
+    </div>*@
+
+        </div>
+        @*<div class="prev-question"></div>*@
+        <div class="next-question"></div>
+    </div>
+
+
+    <script src="~/Content/assets/plugins/jquery-1.10.2.js"></script>
+    <script src="~/Content/assets/scripts/Survey.js"></script>
+</body>
+
+</html>

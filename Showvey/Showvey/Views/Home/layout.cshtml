@@ -1,0 +1,231 @@
+﻿@using Showvey.ViewModels
+@{ <!--view bag adalah tempat penyimpanan variabel, isinya diambil dr controller-->
+    Html.ViewBag.Menu = ViewContext.RouteData.Values["Controller"].ToString();
+    Html.ViewBag.Action = ViewContext.RouteData.Values["Action"].ToString();
+    UserViewModel user = (UserViewModel)HttpContext.Current.Session["User"];
+    
+
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showvey</title>
+    <!-- Core CSS - Include with every page -->
+
+    <link href="~/Content/assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    <link href="~/Content/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/style.css" rel="stylesheet" />
+      <link href="~/Content/assets/css/main-style.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/animate.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--  wrapper -->
+    <div id="wrapper">
+        <!-- navbar top -->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
+            <!-- navbar-header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                    <img src="~/Content/assets/img/logos.png" alt="" />
+                </a>
+            </div>
+            <!-- end navbar-header -->
+            <!-- navbar-top-links -->
+            <ul class="nav navbar-top-links navbar-right">
+                @{Html.RenderAction("Mailbox", "Notifications");} 
+                <!-- main dropdown -->
+                @if (user.RoleName == "Admin")
+                {
+                    {Html.RenderAction("LogBox", "Logs");}
+                }
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-3x"></i>
+                    </a>
+                    <!-- dropdown user-->
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="@Url.Action("Edit", "Users", new { id = user.Id })"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        @*<li>
+                            <a href="@Url.Action("Edit", "Users", new { id = user.Id })"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                        </li>*@
+                        <li class="divider"></li>
+                        <li>
+                            <a href="@Url.Action("Logout", "Account")"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        </li>
+                    </ul>
+                    <!-- end dropdown-user -->
+                </li>
+                <!-- end main dropdown -->
+            </ul>
+            <!-- end navbar-top-links -->
+        </nav>
+        <!-- end navbar top -->
+        <!-- navbar side -->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <!-- sidebar-collapse -->
+            <div class="sidebar-collapse">
+                <!-- side-menu -->
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <!-- user image section-->
+                            <div class="user-section">
+                                <div class="user-section-inner">
+                                    <img src="~/Content/assets/img/user.jpg" alt="">
+                                </div>
+                                <div class="user-info">
+                                    <div><strong>@user.Username</strong></div>
+                                    <div class="user-text-online">
+                                        <span class="user-circle-online btn green btn-circle "></span>&nbsp;Online
+                                    </div>
+                                </div>
+                            </div>
+                        <!--end user image section-->
+                    </li>
+                    @*<li class="hover">
+                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    </li>*@
+                    <li id="@(Html.ViewBag.Menu == "Notifications" ? "selected" : "")" class="hover">
+                        <a href="@Url.Action("Index", "Notifications")"><i class="fa fa-envelope"></i> Message</a>
+                    </li>
+                    @if (user.RoleName == "Admin")
+                    {
+                        <li class="hover @((Html.ViewBag.Menu=="Users" || Html.ViewBag.Menu=="Roles" || Html.ViewBag.Menu=="Permissions" || Html.ViewBag.Menu=="Accesses")?"active":"")">
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Account<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li id="@(Html.ViewBag.Menu=="Users"?"selected":"")">
+                                    @Html.ActionLink("User", "Index", "Users")
+                                </li>
+                                <li id="@(Html.ViewBag.Menu=="Roles"?"selected":"")">
+                                    @Html.ActionLink("Role", "Index", "Roles")
+                                </li>
+                                <li id="@(Html.ViewBag.Menu=="Permissions"?"selected":"")">
+                                    @Html.ActionLink("Permission", "Index", "Permissions")
+                                </li>
+                                <li id="@(Html.ViewBag.Menu=="Accesses"?"selected":"")">
+                                    @Html.ActionLink("Access", "Index", "Accesses")
+                                </li>
+                            </ul>
+                            <!-- second-level-items -->
+                        </li>
+                        <li class="hover @((Html.ViewBag.Menu=="Surveys" || Html.ViewBag.Menu=="QuestionTypes" || Html.ViewBag.Menu=="SurveyTypes")?"active":"")">
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Surveys<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li id="@(Html.ViewBag.Menu=="Surveys"?"selected":"")">
+                                    @Html.ActionLink("Survey", "Index", "Surveys")
+
+                                </li>
+                                <li id="@(Html.ViewBag.Menu=="QuestionTypes"?"selected":"")">
+                                    @Html.ActionLink("Question Type", "Index", "QuestionTypes")
+                                </li>
+                                <li id="@(Html.ViewBag.Menu=="SurveyTypes"?"selected":"")">
+                                    @Html.ActionLink("Survey Type", "Index", "SurveyTypes")
+                                </li>
+                            </ul>
+                            <!-- second-level-items -->
+                        </li>
+                        <li class="hover @((Html.ViewBag.Menu=="Images" || Html.ViewBag.Menu=="ImageTypes" || Html.ViewBag.Menu=="Animates")?"active":"")">
+                            <a href="#"><i class="fa fa-picture-o fa-fw"></i> Media<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li id="@(Html.ViewBag.Menu=="Images"?"selected":"")">
+                                    @Html.ActionLink("Image", "Index", "Images")
+                                </li>
+                                <li id="@(Html.ViewBag.Menu=="ImageTypes"?"selected":"")">
+                                    @Html.ActionLink("Image Type", "Index", "ImageTypes")
+                                </li>
+                            </ul>
+                            <!-- second-level-items -->
+                        </li>
+                        <li class="hover @((Html.ViewBag.Menu=="Cities" || Html.ViewBag.Menu=="Countries")?"active":"")">
+                            <a href="#"><i class="fa fa-book fa-fw"></i> General<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li id="@(Html.ViewBag.Menu=="Cities"?"selected":"")">
+                                    @Html.ActionLink("City", "Index", "Cities")
+                                </li>
+                                <li id="@(Html.ViewBag.Menu=="Countries"?"selected":"")">
+                                    @Html.ActionLink("Country", "Index", "Countries")
+                                </li>
+                            </ul>
+                            <!-- second-level-items -->
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="hover" id="@(Html.ViewBag.Action=="Create" && ViewBag.edit==false && Html.ViewBag.Menu=="Surveys"?"selected":"")">
+                            <a href="@Url.Action("CreateNew","Surveys")"><i class="fa fa-pencil fa-fw"></i> Create</a>
+                        </li>
+                        <li class="hover" id="@(Html.ViewBag.Action=="Index" && Html.ViewBag.Menu=="Surveys"?"selected":"")">
+                            <a href="@Url.Action("Index","Surveys")"><i class="fa fa-tasks fa-fw"></i> View</a>
+                        </li>
+                    }
+				</ul>
+                <!-- end side-menu -->
+            </div>
+            <!-- end sidebar-collapse -->
+        </nav>
+        <!-- end navbar side -->
+        <!--  page-wrapper -->
+        <div id="page-wrapper">
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                    <h1 class="page-header headercolor">@(Html.ViewBag.Menu)</h1>
+                </div>
+                
+                <!--End Page Header -->
+            </div>
+            @RenderBody()
+            <div id="loader"><i class="fa fa-star fa-spin"></i></div>
+            
+        </div>
+        <!-- end page-wrapper -->
+    </div>
+    <!-- end wrapper -->
+    <!-- Core Scripts - Include with every page -->
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+    
+    <script src="~/Content/assets/scripts/jquery-ui-1.8.23.custom.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/scripts/jQuery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Content/assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#loader').hide(); // hide message when finished with load
+        });
+    </script>
+    @*<script src="~/Content/assets/scripts/jquery-ui-1.8.23.custom.min.js" type="text/javascript"></script>*@
+    @*<script src="~/Content/assets/scripts/jQuery-2.1.4.min.js" type="text/javascript"></script>*@
+    <script src="~/Content/assets/datatables/jquery.dataTables.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="~/Content/assets/datatables/jquery.dataTables.css" />
+    <script src="~/Content/assets/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="~/Content/assets/datatables/dataTables.bootstrap.css" />
+
+    <script>
+    $(function () {
+    $("#tabledata").DataTable();
+
+    });
+    </script>
+    <script src="~/Content/assets/scripts/siminta.js"></script>
+</body>
+</html>
+
+
+
+

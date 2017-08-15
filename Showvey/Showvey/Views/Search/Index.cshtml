@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Showvey.ViewModels.SearchViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Home/layout.cshtml";
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Table)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Table)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit",item.Model, new { id=item.Id },null) |
+            @Html.ActionLink("Details", "Details",item.Model, new { id=item.Id },null) |
+            @Html.ActionLink("Delete", "Delete",item.Model, new { id=item.Id },null)
+        </td>
+    </tr>
+}
+
+</table>

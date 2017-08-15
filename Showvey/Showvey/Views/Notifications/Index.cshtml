@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Showvey.ViewModels.NotificationViewModel>
+@using Showvey.ViewModels
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Home/layout.cshtml";
+    UserViewModel user = (UserViewModel)HttpContext.Current.Session["User"];
+}
+@functions{
+    public string GetDays(DateTime d)
+    {
+        if (Math.Round((double)(DateTime.Now - d).TotalDays) == 0)
+        {
+            return "Today";
+        }
+        else if (Math.Round((double)(DateTime.Now - d).TotalDays) == 1)
+        {
+            return "Yesterday";
+        }
+        else
+        {
+            return (Math.Round((double)(DateTime.Now - d).TotalDays)).ToString() + " days ago";
+        }
+    }
+}
+
+<p>
+    @{Html.BeginForm("ReceiverDelete", "Notifications", FormMethod.Post, new { name = "tableForm" });}
+    <span>
+        @if (user.RoleName == "Admin")
+        {
+            <i>&nbsp; &nbsp;</i>
+            <a href="@Url.Action("Create")"><span><i class="fa fa-pencil"></i> Create</span></a>
+        }
+        @if (ViewBag.Count > 0)
+        {
+            <i>&nbsp; &nbsp; &nbsp;</i>
+            <a href="javascript:(function(){document.tableForm.submit();return void(0);})()"><span><i class="fa fa-trash-o"></i> Delete</span></a>
+        }
+        @if (user.RoleName == "Admin")
+        {
+            <i>&nbsp; &nbsp; &nbsp;</i>
+            <a href="@Url.Action("Sent")"><span><i class="fa fa-check"></i> Sent</span></a>
+        }
+    </span>
+</p>
+    <ul class="messagesList"> 
+        @foreach (var item in Model)
+        {
+            <li>
+                <span id="@(item.IsRead==true?"":"unread")" class="from"><input type="checkbox" name="msg" value="@item.Id" />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span id="@(item.IsRead==true?"unread":"")"><i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</i></span> @Html.ActionLink(item.FromUsername, "Details", new { id = item.Id, sender = false })  </span><span class="title" id="@(item.IsRead==true?"":"unread")"> @item.Message</span><span class="date"  id="@(item.IsRead==true?"":"unread")">@GetDays(item.CreatedDate), <b> @item.CreatedDate.ToString("hh:mm tt")</b></span>
+            </li>
+        }
+        
+                </ul>
+@{ Html.EndForm(); }
