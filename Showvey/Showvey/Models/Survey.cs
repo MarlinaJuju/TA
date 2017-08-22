@@ -17,5 +17,8 @@ namespace Showvey.Models
         public bool IsBlock { get; set; }
         public string Description { get; set; }
         public bool IsCompleted { get; set; }
+        public Guid SurveyCategoryId { get; set; }
+        public int Rank { get; set; }
+        public int Vote { get; set; }
     }
 }

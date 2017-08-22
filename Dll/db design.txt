@@ -1,52 +1,73 @@
-Survey:
+ComponentType
+- string Name	: Character, DialogBox, Background, Color
+
+Component
+- string Name
+- string ImageUrl
+
+ComponentCollection
+- Guid UserId
+- Guid ComponentId
+
+Survey: (Done)
 - int rank
 - int vote
 - Guid SurveyCategoryId
 - Bool IsDeleted
 
-SurveyCategory:
+SurveyCategory: (Done)
 - Guid Id
 - bool IsDeleted
 - string Name
 
-Collection:
+BadgeCollection:
 - Guid Id
 - Guid UserId
 - Guid BadgeId
 - Bool IsDeleted
 
+Action:
+- Guid Id
+- Name
+
+UserAction:
+- Guid Id
+- Guid UserId
+- Guid ActionId
+- int Count
+
 Badge:
 - Guid Id
-- string Name;
+- string Name
 - int Quantity
-- string DesiredAction
+- string DesiredAction (x)
 - Bool IsDeleted
+- string ImageUrl
 
 BadgeRequirement:
 - Guid Id
 - Guid BadgeId
 - int Quantity
-- string Name
-
-MysteryBox:
-- Guid Id
-- string Description
-- Bool IsDeleted
-- Guid? BadgeId
+- Guid ActionId
 
 Event:
 - Guid Id
 - DateTime StartDate
 - DateTime EndDate
 - String Name
-- Guid ImageId
+- stirng ImageUrl
 - int AccomplishedUser
 
 EventRequirement:
 - Guid Id
 - Guid BadgeId
 - int Quantity
-- string Name
+- Guid ActionId
+
+MysteryBox
+- Guid Id
+- Guid ComponentId
+- Guid UserId
 
 ChatMember:
 - Guid Id

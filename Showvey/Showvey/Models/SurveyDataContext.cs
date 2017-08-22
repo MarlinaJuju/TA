@@ -26,5 +26,6 @@ namespace Showvey.Models
         public virtual DbSet<Animate> Animates { get; set; }
         public virtual DbSet<Log> Logs { get; set; }
         public virtual DbSet<Respondent> Respondents { get; set; }
+        public virtual DbSet<SurveyCategory> SurveyCategories { get; set; }
     }
 }
